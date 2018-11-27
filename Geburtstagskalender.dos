@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard SYSTEM "Wizard.dtd">
+
+<wizard>
+	<device id="836d92f0-7e36-4746-bde6-aa3e16da80e1">
+		<name>jython</name>
+		<connector class="com.clt.dialog.client.ManualCLTConnector">
+			<att name="Server Name" type="string" value="localhost"/>
+			<att name="Port" type="string" value="8888"/>
+		</connector>
+		<icon width="16">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
+	</device>
+	<plugin type="dialogos.plugin.sphinx">
+		<att name="language" type="string" value="de_DE"/>
+	</plugin>
+	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.sqlite">
+		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\user\Documents\Dialogsysteme\geburtstage.db"/>
+	</plugin>
+	<graph directed="1" Graphic="1" Layout="points">
+		<att name="width" type="integer" value="1673"/>
+		<att name="height" type="integer" value="924"/>
+		<groovyFunctions></groovyFunctions>
+		<grammar id="e1007aaf-4aa2-46cf-b2b9-8424eadec3d8">
+			<name>wann oder wer</name>
+			<value>root $input;
+ $input = $wann | $wer;
+ $wann = &quot;Geburtstags Datum fragen&quot;;
+ $wer = &quot;wer hat heute Geburtstag&quot;;</value>
+		</grammar>
+		<grammar id="6ce45b42-e2d1-434d-8d3e-23e6b7eb57bc">
+			<name>Namen</name>
+			<value>root $input;
+ $input = &quot;Onkel Heinz&quot;|&quot;Frau Meier&quot;|&quot;Helena&quot;|&quot;Paul&quot;;</value>
+		</grammar>
+		<variable uid="5276a81d-2f90-497f-85a5-249365a80444">
+			<name>datum</name>
+			<type>struct</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="b5e5a7c0-a043-43b6-967a-f90f4ce79bf8">
+			<name>tagheute</name>
+			<type>int</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="68e9144c-bf27-4da1-8729-12062821764b">
+			<name>jahrheute</name>
+			<type>int</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="16bf8f1f-a5eb-4356-984c-642e9be55020">
+			<name>monatheute</name>
+			<type>int</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="16320f67-490a-4a0d-864d-e548f8ea8981">
+			<name>name</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="e27d6b5b-1db8-4974-a319-78496bb944da">
+			<name>namen</name>
+			<type>list</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="fb846396-4721-42ed-a8bc-ae1ba5b49707">
+			<name>test</name>
+			<type>int</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="cf12cf32-9b60-4f1f-89f8-c6523c2bd7ba">
+			<name>datumtext</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="8c39b0fe-9600-490b-b8be-11d1398b37f4">
+			<name>alter</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<node uid="161df7c5-c5e1-4992-b0c8-803079b2f0f8" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="677" y="576" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Soll ich eine Geburtstagskarte fuer&quot;+name+&quot;schreiben?&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="expression"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="1a7db527-5d77-4b85-bff6-9bedcc65a5d4" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="739" y="83" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Hallo, was kann ich für Sie tun?&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="250a6716-b4db-4bd3-879c-b1889c45dbaf" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="991" y="212" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>datum = currentDate();
+tagheute = get(datum,&quot;day&quot;);
+monatheute = get(datum,&quot;month&quot;);
+jahrheute = get(datum,&quot;year&quot;);
+</value>
+			</att>
+		</node>
+		<node uid="25bfff6f-0518-4add-aa34-ff286024f4d5" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
+			<graphics x="559" y="639" fill="#b20000"/>
+			<att name="title" type="string" value="Spracherkenner"/>
+			<att name="language" type="string" value="Deutsch"/>
+		</node>
+		<node uid="2a866c0a-5595-4dab-bde6-b536e5c84829" class="com.clt.diamant.graph.nodes.GotoNode">
+			<graphics x="682" y="819" fill="#4c4c80"/>
+			<att name="title" type="string" value="Sprung"/>
+			<att name="label_uid" type="string" value="8b821895-05c3-4be9-9971-3ea1141e8d08"/>
+		</node>
+		<node uid="2fba332f-39ac-464d-a674-3905ccc1143d" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="500" y="212" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Wessen Geburtstagsdatum wollen Sie wissen?&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="34a7652b-7fa7-4f56-906f-d03d2b03eba2" class="com.clt.diamant.graph.nodes.EndNode">
+			<graphics x="788" y="836" fill="#9999ff"/>
+			<att name="title" type="string" value="Ende"/>
+		</node>
+		<node uid="5735ef97-bf9e-4e1c-a288-0f61a716bad5" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
+			<graphics x="739" y="155" fill="#b20000"/>
+			<att name="title" type="string" value="Spracherkenner"/>
+			<att name="language" type="string" value="Deutsch"/>
+		</node>
+		<node uid="5cff22c2-c51b-4042-b3bf-54ffbca2ef4a" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="406" y="798" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Ich habe eine Geburts tagskarte an &quot;+name+&quot;geschrieben. Sie ist unter dem Namen&quot;+name+&quot;s Karte punkt txt gespeichert.&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="expression"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="64ac6f36-a080-4707-843b-17ac040348fb" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
+			<graphics x="751" y="751" fill="#b20000"/>
+			<att name="title" type="string" value="Spracherkenner"/>
+			<att name="language" type="string" value="Deutsch"/>
+		</node>
+		<node uid="766391c9-1d68-414b-9754-93891cc8f2b2" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="522" y="467" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>int iterator = 0;
+while (iterator&lt;length(namen))
+{
+ if (get(get(namen,iterator),&quot;name&quot;)==name)
+ {
+ datumtext = name+&quot;hat am&quot;+get(get(namen,iterator),&quot;datum&quot;)+&quot;Geburtstag&quot;;
+ break;
+ }
+iterator ++;
+datumtext = &quot;Sie haben sich den Geburts tag von&quot;+name+&quot;noch nicht notiert&quot;;
+}</value>
+			</att>
+		</node>
+		<node uid="8b821895-05c3-4be9-9971-3ea1141e8d08" class="com.clt.diamant.graph.nodes.LabelNode">
+			<graphics x="902" y="67" fill="#4c4c80"/>
+			<att name="title" type="string" value="Sprungziel"/>
+		</node>
+		<node uid="8fb0c984-c397-4781-aa17-3ec64068142c" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="991" y="388" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>int iterator = 0;
+while (iterator&lt;length(namen))
+{
+ test = get(get(namen,iterator),&quot;monat&quot;);
+ if(get(get(namen,iterator),&quot;monat&quot;) == monatheute &amp;&amp; get(get(namen,iterator),&quot;tag&quot;) == tagheute)
+ { name = get(get(namen,iterator),&quot;name&quot;);
+ alter = str(jahrheute-get(get(namen,iterator),&quot;jahr&quot;));
+ break;
+ }
+iterator++;
+name = &quot;niemand&quot;;
+}
+</value>
+			</att>
+		</node>
+		<node uid="96a43d53-0de1-41de-986d-59d20df4dac0" class="com.clt.diamant.graph.nodes.StartNode">
+			<graphics x="764" y="7" fill="#9999ff"/>
+			<att name="title" type="string" value="Start"/>
+		</node>
+		<node uid="9aefc105-614f-448a-ad95-8e1b5f3c4e3d" class="com.clt.diamant.graph.nodes.OutputNode">
+			<graphics x="336" y="695" fill="#00cc99"/>
+			<att name="title" type="string" value="Ausgabe"/>
+			<att name="output" type="list">
+				<att name="836d92f0-7e36-4746-bde6-aa3e16da80e1" type="list">
+					<att name="Text" type="string" value="name"/>
+				</att>
+			</att>
+			<att name="reset" type="boolean" value="0"/>
+			<att name="wait" type="boolean" value="0"/>
+		</node>
+		<node uid="b751b465-814f-4ea1-856b-619e15f27d02" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
+			<graphics x="500" y="306" fill="#b20000"/>
+			<att name="title" type="string" value="Spracherkenner"/>
+			<att name="language" type="string" value="Deutsch"/>
+			<att name="grammar" type="string" value="6ce45b42-e2d1-434d-8d3e-23e6b7eb57bc"/>
+			<att name="grammarExpression" type="string" value="name"/>
+		</node>
+		<node uid="c40cf7ed-81fe-47a3-85b9-710e6a8c3c91" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="949" y="490" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>name+&quot;wird heute&quot;+alter+&quot;Jahre alt.&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="expression"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="cc2341d1-244a-4a19-b3bd-b0022dd3587e" class="com.clt.diamant.graph.nodes.TestVariableNode">
+			<graphics x="884" y="558" fill="#c0c0c0"/>
+			<att name="title" type="string" value="Variable testen"/>
+			<att name="var_uid" type="string" value="16320f67-490a-4a0d-864d-e548f8ea8981"/>
+			<att name="var_name" type="string" value="name"/>
+		</node>
+		<node uid="ce9679d6-1ba4-41ca-821f-b11c8f64b11e" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="751" y="681" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Kann ich noch etwas für sie tun?&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="ddb3e49f-f56d-4afd-b6f2-fbb012302acb" class="edu.cmu.lti.dialogos.db.sqlite.SqliteNode">
+			<graphics x="991" y="302" fill="#ffff00"/>
+			<att name="title" type="string" value="Sqlite"/>
+			<att name="resultVar" type="string" value="namen"/>
+			<att name="queryExp" type="string" value="SELECT name,monat,tag,jahr FROM daten "/>
+		</node>
+		<node uid="ddee49c3-8f54-4bcb-9516-c7aa31bd9487" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="506" y="555" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>datumtext</value>
+			</att>
+			<att name="prompt_type" type="string" value="expression"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="df32a733-6799-4d00-acad-499a618ba29d" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="978" y="780" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Auf Wiedersehen!&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="f1aeb394-2271-4140-aa30-6dd10da00df7" class="edu.cmu.lti.dialogos.db.sqlite.SqliteNode">
+			<graphics x="525" y="391" fill="#ffff00"/>
+			<att name="title" type="string" value="Sqlite"/>
+			<att name="resultVar" type="string" value="namen"/>
+			<att name="queryExp" type="string" value="SELECT name,datum FROM daten"/>
+		</node>
+		<edge src="161df7c5-c5e1-4992-b0c8-803079b2f0f8" tgt="25bfff6f-0518-4add-aa34-ff286024f4d5">
+		</edge>
+		<edge src="1a7db527-5d77-4b85-bff6-9bedcc65a5d4" tgt="5735ef97-bf9e-4e1c-a288-0f61a716bad5">
+		</edge>
+		<edge src="250a6716-b4db-4bd3-879c-b1889c45dbaf" tgt="ddb3e49f-f56d-4afd-b6f2-fbb012302acb">
+		</edge>
+		<edge src="25bfff6f-0518-4add-aa34-ff286024f4d5" tgt="9aefc105-614f-448a-ad95-8e1b5f3c4e3d">
+			<att name="condition" type="string" value="Ja bitte"/>
+		</edge>
+		<edge src="25bfff6f-0518-4add-aa34-ff286024f4d5" tgt="ce9679d6-1ba4-41ca-821f-b11c8f64b11e">
+			<att name="condition" type="string" value="Nein danke"/>
+		</edge>
+		<edge src="2fba332f-39ac-464d-a674-3905ccc1143d" tgt="b751b465-814f-4ea1-856b-619e15f27d02">
+		</edge>
+		<edge src="5735ef97-bf9e-4e1c-a288-0f61a716bad5" tgt="2fba332f-39ac-464d-a674-3905ccc1143d">
+			<att name="condition" type="string" value="&quot;Geburtstags Datum fragen&quot;"/>
+		</edge>
+		<edge src="5735ef97-bf9e-4e1c-a288-0f61a716bad5" tgt="250a6716-b4db-4bd3-879c-b1889c45dbaf">
+			<att name="condition" type="string" value="&quot;Wer hat heute Geburtstag&quot;"/>
+		</edge>
+		<edge src="5cff22c2-c51b-4042-b3bf-54ffbca2ef4a" tgt="ce9679d6-1ba4-41ca-821f-b11c8f64b11e">
+		</edge>
+		<edge src="64ac6f36-a080-4707-843b-17ac040348fb" tgt="2a866c0a-5595-4dab-bde6-b536e5c84829">
+			<att name="condition" type="string" value="Ja bitte"/>
+		</edge>
+		<edge src="64ac6f36-a080-4707-843b-17ac040348fb" tgt="df32a733-6799-4d00-acad-499a618ba29d">
+			<att name="condition" type="string" value="Nein danke"/>
+		</edge>
+		<edge src="766391c9-1d68-414b-9754-93891cc8f2b2" tgt="ddee49c3-8f54-4bcb-9516-c7aa31bd9487">
+		</edge>
+		<edge src="8b821895-05c3-4be9-9971-3ea1141e8d08" tgt="1a7db527-5d77-4b85-bff6-9bedcc65a5d4">
+		</edge>
+		<edge src="8fb0c984-c397-4781-aa17-3ec64068142c" tgt="c40cf7ed-81fe-47a3-85b9-710e6a8c3c91">
+		</edge>
+		<edge src="96a43d53-0de1-41de-986d-59d20df4dac0" tgt="1a7db527-5d77-4b85-bff6-9bedcc65a5d4">
+		</edge>
+		<edge src="9aefc105-614f-448a-ad95-8e1b5f3c4e3d" tgt="5cff22c2-c51b-4042-b3bf-54ffbca2ef4a">
+		</edge>
+		<edge src="b751b465-814f-4ea1-856b-619e15f27d02" tgt="f1aeb394-2271-4140-aa30-6dd10da00df7">
+			<att name="condition" type="string" value="name"/>
+		</edge>
+		<edge src="c40cf7ed-81fe-47a3-85b9-710e6a8c3c91" tgt="cc2341d1-244a-4a19-b3bd-b0022dd3587e">
+		</edge>
+		<edge src="cc2341d1-244a-4a19-b3bd-b0022dd3587e" tgt="ce9679d6-1ba4-41ca-821f-b11c8f64b11e">
+			<att name="condition" type="string" value="&quot;niemand&quot;"/>
+		</edge>
+		<edge src="cc2341d1-244a-4a19-b3bd-b0022dd3587e" tgt="161df7c5-c5e1-4992-b0c8-803079b2f0f8">
+			<att name="condition" type="string" value="_"/>
+		</edge>
+		<edge src="ce9679d6-1ba4-41ca-821f-b11c8f64b11e" tgt="64ac6f36-a080-4707-843b-17ac040348fb">
+		</edge>
+		<edge src="ddb3e49f-f56d-4afd-b6f2-fbb012302acb" tgt="8fb0c984-c397-4781-aa17-3ec64068142c">
+		</edge>
+		<edge src="ddee49c3-8f54-4bcb-9516-c7aa31bd9487" tgt="161df7c5-c5e1-4992-b0c8-803079b2f0f8">
+		</edge>
+		<edge src="df32a733-6799-4d00-acad-499a618ba29d" tgt="34a7652b-7fa7-4f56-906f-d03d2b03eba2">
+		</edge>
+		<edge src="f1aeb394-2271-4140-aa30-6dd10da00df7" tgt="766391c9-1d68-414b-9754-93891cc8f2b2">
+		</edge>
+	</graph>
+</wizard>
