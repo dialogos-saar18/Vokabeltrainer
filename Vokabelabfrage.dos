@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wizard SYSTEM "Wizard.dtd">
+
+<wizard>
+	<plugin type="dialogos.plugin.sphinx">
+		<att name="language" type="string" value="de_DE"/>
+	</plugin>
+	<plugin type="dialogos.plugin.tts">
+	</plugin>
+	<plugin type="dialogos.plugin.sqlite">
+		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\user\Documents\Dialogsysteme\Vokabeltrainer\Dictionary.db"/>
+	</plugin>
+	<graph directed="1" Graphic="1" Layout="points">
+		<att name="width" type="integer" value="1673"/>
+		<att name="height" type="integer" value="924"/>
+		<groovyFunctions></groovyFunctions>
+		<grammar id="29103e29-10c2-435f-b84b-7600e017ba46">
+			<name>Ohne Titel</name>
+			<value>grammatik = grammatik + &quot;root $Eingabe; \n&quot;;
+grammatik = grammatik + &quot;$Eingabe = $Zahlen | Ende \n;&quot;;
+grammatik = grammatik + &quot;$Zahlen = 0 &quot;;
+for (int i=1; i&lt;999; i++)
+  grammatik = grammatik + &quot;|&quot;+i;
+grammatik = grammatik + &quot;;&quot;;</value>
+		</grammar>
+		<variable uid="b5f628ad-de09-4ba2-b836-85c886df59e3">
+			<name>lektion</name>
+			<type>list</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="b1997bcd-6012-4169-9424-51d0e11ff307">
+			<name>frage</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="7534ef4e-e4a4-447a-b746-f596cd61df6f">
+			<name>antwort</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="bfaed00d-7fe9-4c59-8c27-bb4d82d3b6bc">
+			<name>z</name>
+			<type>int</type>
+			<value>0</value>
+		</variable>
+		<variable uid="1b6d4fa6-2f7f-462d-8f9e-ef6c8c6e1875">
+			<name>länge</name>
+			<type>int</type>
+			<value>undefined</value>
+		</variable>
+		<variable uid="8f734671-5009-44f9-99e2-dd1537100e39">
+			<name>grammatik</name>
+			<type>string</type>
+			<value>undefined</value>
+			<export/>
+		</variable>
+		<variable uid="0bf242b8-fe59-480c-8992-a31d9f38400d">
+			<name>gegeben</name>
+			<type>string</type>
+			<value>undefined</value>
+		</variable>
+		<node uid="0ffa1141-39ae-4879-b819-82c9e1c9d0dc" class="com.clt.diamant.graph.nodes.GotoNode">
+			<graphics x="528" y="780" fill="#4c4c80"/>
+			<att name="title" type="string" value="Sprung"/>
+			<att name="label_uid" type="string" value="d96b3efa-848f-4f1e-af31-8469e481b512"/>
+		</node>
+		<node uid="164a306c-21cf-4ef5-b08b-6cf52153f48c" class="com.clt.diamant.graph.nodes.ConditionalNode">
+			<graphics x="591" y="628" fill="#c0c0c0"/>
+			<att name="title" type="string" value="Bedingung"/>
+			<att name="expression" type="string" value="z &lt; länge"/>
+		</node>
+		<node uid="3fac8422-27f4-4c57-85d8-359df59759b7" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="489" y="535" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Richtig!&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="5357df81-2627-4095-9441-c51ba52a5cad" class="com.clt.diamant.graph.nodes.EndNode">
+			<graphics x="661" y="781" fill="#9999ff"/>
+			<att name="title" type="string" value="Ende"/>
+		</node>
+		<node uid="6541e55a-7db0-48ed-905c-8c6213d16f3e" class="edu.cmu.lti.dialogos.db.sqlite.SqliteNode">
+			<graphics x="591" y="102" fill="#c0c0c0"/>
+			<att name="title" type="string" value="Sqlite"/>
+			<att name="resultVar" type="string" value="lektion"/>
+			<att name="queryExp" type="string" value="SELECT englisch,deutsch FROM wort"/>
+		</node>
+		<node uid="6a29f202-4e9d-42d8-a482-5407168f7157" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="591" y="178" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>länge = length(lektion);</value>
+			</att>
+		</node>
+		<node uid="8cabb56c-23f4-4eff-8b5e-373a79ea2c9e" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="591" y="244" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>struct vokabel;
+vokabel = get(lektion,z);
+frage = get(vokabel,&quot;deutsch&quot;);
+antwort = get(vokabel,&quot;englisch&quot;);
+z += 1;</value>
+			</att>
+		</node>
+		<node uid="8cb5ecef-7f3d-4cd8-b005-2201a209539f" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="566" y="369" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>frage</value>
+			</att>
+			<att name="prompt_type" type="string" value="expression"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<node uid="a35fd82b-4cf1-4bc7-aa6f-34f874018755" class="com.clt.diamant.graph.nodes.StartNode">
+			<graphics x="591" y="21" fill="#9999ff"/>
+			<att name="title" type="string" value="Start"/>
+		</node>
+		<node uid="b21f0bff-3926-4379-b494-23bb554610fd" class="com.clt.diamant.graph.nodes.ScriptNode">
+			<graphics x="591" y="307" fill="#99ffff"/>
+			<att name="title" type="string" value="Script"/>
+			<att name="script" type="text">
+				<value>grammatik = &quot;root $Input;\n&quot;;
+grammatik += &quot;$Input = &quot;+antwort+&quot;;&quot;;</value>
+			</att>
+		</node>
+		<node uid="bb55ac56-b5ca-485d-a356-ca53bca96d41" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
+			<graphics x="566" y="442" fill="#b20000"/>
+			<att name="title" type="string" value="Spracherkenner"/>
+			<att name="timeout" type="string" value="5000"/>
+			<att name="language" type="string" value="Deutsch"/>
+			<att name="grammarExpression" type="string" value="grammatik"/>
+		</node>
+		<node uid="d96b3efa-848f-4f1e-af31-8469e481b512" class="com.clt.diamant.graph.nodes.LabelNode">
+			<graphics x="676" y="169" fill="#4c4c80"/>
+			<att name="title" type="string" value="Sprungziel"/>
+		</node>
+		<node uid="f3b73b64-ef97-4408-9897-b62ae527105b" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+			<graphics x="651" y="538" fill="#00b200"/>
+			<att name="title" type="string" value="Sprachsynthese"/>
+			<att name="prompt" type="text">
+				<value>&quot;Falsch!&quot;</value>
+			</att>
+			<att name="prompt_type" type="string" value="text"/>
+			<att name="wait" type="boolean" value="1"/>
+		</node>
+		<edge src="164a306c-21cf-4ef5-b08b-6cf52153f48c" tgt="0ffa1141-39ae-4879-b819-82c9e1c9d0dc">
+			<att name="condition" type="string" value="z &lt; länge"/>
+		</edge>
+		<edge src="164a306c-21cf-4ef5-b08b-6cf52153f48c" tgt="5357df81-2627-4095-9441-c51ba52a5cad">
+			<att name="condition" type="string" value="else"/>
+		</edge>
+		<edge src="3fac8422-27f4-4c57-85d8-359df59759b7" tgt="164a306c-21cf-4ef5-b08b-6cf52153f48c">
+		</edge>
+		<edge src="6541e55a-7db0-48ed-905c-8c6213d16f3e" tgt="6a29f202-4e9d-42d8-a482-5407168f7157">
+		</edge>
+		<edge src="6a29f202-4e9d-42d8-a482-5407168f7157" tgt="8cabb56c-23f4-4eff-8b5e-373a79ea2c9e">
+		</edge>
+		<edge src="8cabb56c-23f4-4eff-8b5e-373a79ea2c9e" tgt="b21f0bff-3926-4379-b494-23bb554610fd">
+		</edge>
+		<edge src="8cb5ecef-7f3d-4cd8-b005-2201a209539f" tgt="bb55ac56-b5ca-485d-a356-ca53bca96d41">
+		</edge>
+		<edge src="a35fd82b-4cf1-4bc7-aa6f-34f874018755" tgt="6541e55a-7db0-48ed-905c-8c6213d16f3e">
+		</edge>
+		<edge src="b21f0bff-3926-4379-b494-23bb554610fd" tgt="8cb5ecef-7f3d-4cd8-b005-2201a209539f">
+		</edge>
+		<edge src="bb55ac56-b5ca-485d-a356-ca53bca96d41" tgt="3fac8422-27f4-4c57-85d8-359df59759b7">
+			<att name="condition" type="string" value="gegeben"/>
+		</edge>
+		<edge type="timeout" src="bb55ac56-b5ca-485d-a356-ca53bca96d41" tgt="f3b73b64-ef97-4408-9897-b62ae527105b">
+			<att name="condition" type="string" value="Zeitüberschreitung nach 5000ms"/>
+			<att name="timeout" type="string" value="5000"/>
+		</edge>
+		<edge src="d96b3efa-848f-4f1e-af31-8469e481b512" tgt="8cabb56c-23f4-4eff-8b5e-373a79ea2c9e">
+		</edge>
+		<edge src="f3b73b64-ef97-4408-9897-b62ae527105b" tgt="164a306c-21cf-4ef5-b08b-6cf52153f48c">
+		</edge>
+	</graph>
+</wizard>
