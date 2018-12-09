@@ -116,7 +116,7 @@ $Lektion = { Lektion };</value>
 			<att name="language" type="string" value="Deutsch"/>
 		</node>
 		<node uid="8ff4d961-bcf1-4863-bf94-c629b156b646" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="292" y="266" fill="#ffc800"/>
+			<graphics x="292" y="265" fill="#ffc800"/>
 			<att name="title" type="string" value="Abfrage"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -170,8 +170,7 @@ $Lektion = { Lektion };</value>
 						<att name="title" type="string" value="Ausgabe"/>
 						<att name="output" type="list">
 							<att name="1b33de25-9bf6-4f24-bcae-a822c8f4b31b" type="list">
-								<att name="Text" type="string" value="&quot;frage antwort O&quot;"/>
-								<att name="Text" type="string" value=""/>
+								<att name="Text" type="string" value="frage+&quot; &quot;+antwort+&quot; O&quot;"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
@@ -200,11 +199,11 @@ $Lektion = { Lektion };</value>
 						<att name="expression" type="string" value="z &lt; länge"/>
 					</node>
 					<node uid="87dd8719-b829-4d0d-abaf-bcd6bcbe3a88" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="354" y="265" fill="#00cc99"/>
+						<graphics x="354" y="266" fill="#00cc99"/>
 						<att name="title" type="string" value="Ausgabe"/>
 						<att name="output" type="list">
 							<att name="1b33de25-9bf6-4f24-bcae-a822c8f4b31b" type="list">
-								<att name="Text" type="string" value="&quot;frage antwort X&quot;"/>
+								<att name="Text" type="string" value="frage+&quot; &quot;+antwort+&quot; X&quot;"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
@@ -328,7 +327,7 @@ Soll ich Dich abfragen 1, möchtest Du eine neue Lektion erstellen 2 oder soll i
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="adcaa218-558a-41b9-b1af-1d6d66c63d22" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="353" y="306" fill="#ffc800"/>
+			<graphics x="353" y="322" fill="#ffc800"/>
 			<att name="title" type="string" value="neue Lektion"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
