@@ -84,12 +84,68 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</ic
 			<entry g="waterkress" p="vo:takr@s"/>
 			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
 			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="&quot;Woerterbuch&quot;" p="v2:rt6bu:x"/>
+			<entry g="&quot;abfragen&quot;" p="abfragE+n"/>
+			<entry g="&quot;Lektion&quot;" p="lEktsjo:n   "/>
+			<entry g="waterkress" p="vo:takr@s"/>
+			<entry g="Vokabelliste" p="vo:ka:bElIst@"/>
+			<entry g="waterkress" p="vo:takr@s"/>
 		</g2p>
 	</plugin>
 	<plugin type="dialogos.plugin.tts">
 	</plugin>
+	<plugin type="dialogos.plugin.lego">
+	</plugin>
 	<plugin type="dialogos.plugin.sqlite">
-		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\user\Documents\Dialogsysteme\Vokabeltrainer\Dictionary.db"/>
+		<att name="dbURL" type="string" value="jdbc:sqlite:C:\Users\marc_\Desktop\Dialogsysteme\Vokabeltrainer\Dictionary.db"/>
 	</plugin>
 	<graph directed="1" Graphic="1" Layout="points">
 		<att name="width" type="integer" value="1673"/>
@@ -321,13 +377,13 @@ grammatik += &quot;$Input = &quot;+antwort+&quot;;&quot;;</value>
 			<att name="title" type="string" value="Sprachsynthese"/>
 			<att name="prompt" type="text">
 				<value>Was kann ich für Dich tun?
-Soll ich Dich abfragen 1, möchtest Du eine neue Lektion erstellen 2 oder soll ich für Dich Wörterbuch spielen 3?</value>
+Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich für Dich Wörterbuch spielen?</value>
 			</att>
 			<att name="prompt_type" type="string" value="text"/>
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="adcaa218-558a-41b9-b1af-1d6d66c63d22" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="353" y="322" fill="#ffc800"/>
+			<graphics x="353" y="330" fill="#ffc800"/>
 			<att name="title" type="string" value="neue Lektion"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -417,13 +473,13 @@ Soll ich Dich abfragen 1, möchtest Du eine neue Lektion erstellen 2 oder soll i
 			<att name="title" type="string" value="Start"/>
 		</node>
 		<edge src="3acc167f-d51b-4e93-9755-a8fbcdabdad4" tgt="8ff4d961-bcf1-4863-bf94-c629b156b646">
-			<att name="condition" type="string" value="eins"/>
+			<att name="condition" type="string" value="Abfrage"/>
 		</edge>
 		<edge src="3acc167f-d51b-4e93-9755-a8fbcdabdad4" tgt="adcaa218-558a-41b9-b1af-1d6d66c63d22">
-			<att name="condition" type="string" value="zwei"/>
+			<att name="condition" type="string" value="Vokabel Liste"/>
 		</edge>
 		<edge src="3acc167f-d51b-4e93-9755-a8fbcdabdad4" tgt="d31704bb-8887-4c39-9923-ab1e7809a691">
-			<att name="condition" type="string" value="drei"/>
+			<att name="condition" type="string" value="Wörterbuch"/>
 		</edge>
 		<edge src="8ff4d961-bcf1-4863-bf94-c629b156b646" tgt="00edcfd4-1216-4378-9059-79302123ad0f">
 			<att name="condition" type="string" value="Return"/>
