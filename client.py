@@ -1,7 +1,25 @@
-import import_tkinter
 from com.clt.dialog.client import Client
  
+from javax.swing import JPanel, JFrame, JTextArea, JScrollPane
+from java.awt import Color
 
+frame = JFrame('Vokabeltrainer',
+            defaultCloseOperation = JFrame.EXIT_ON_CLOSE,
+            size = (500, 500), 
+        )
+scrollpane = JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                             JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+scrollpane.preferredSize = 400, 800
+scrollpane.visible = True
+frame.add(scrollpane)
+pnl = JPanel()
+feld = JTextArea()
+feld.editable = False
+pnl.add(feld)
+frame.add(pnl)
+frame.visible = True    
+
+ 
 class Main(Client):
     def __init__(self):
         pass
@@ -22,9 +40,14 @@ class Main(Client):
         #html = response.read()
         #with open("leoausgabe.txt","w") as f:
         #f.write(str(html))
-        
-        print "output: " + value.getString()
-        
+        eingabe = value.getString()
+        liste = eingabe.split()
+        frage = liste[0]
+        antwort = liste[1]
+        symbol = liste[2]
+        text = feld.getText()
+        text = text+"\n"+frage+"\t"+antwort+"\t"+symbol
+        feld.setText(text)
     def getName(self):
         return "Jython demo client"
 

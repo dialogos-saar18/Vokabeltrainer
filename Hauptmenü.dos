@@ -166,56 +166,57 @@ $Lektion = { Lektion };</value>
 						<export/>
 					</variable>
 					<node uid="0651e765-10cb-49a1-9fab-8f2162eec92d" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="261" y="368" fill="#00cc99"/>
+						<graphics x="279" y="267" fill="#00cc99"/>
 						<att name="title" type="string" value="Ausgabe"/>
 						<att name="output" type="list">
 							<att name="1b33de25-9bf6-4f24-bcae-a822c8f4b31b" type="list">
-								<att name="Text" type="string" value="&quot;O&quot;"/>
+								<att name="Text" type="string" value="&quot;frage antwort O&quot;"/>
+								<att name="Text" type="string" value=""/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
 						<att name="wait" type="boolean" value="0"/>
 					</node>
 					<node uid="1150894b-d28d-4c55-b0b1-b43d8d59febe" class="edu.cmu.lti.dialogos.db.sqlite.SqliteNode">
-						<graphics x="107" y="62" fill="#c0c0c0"/>
+						<graphics x="76" y="60" fill="#c0c0c0"/>
 						<att name="title" type="string" value="Sqlite"/>
 						<att name="resultVar" type="string" value="lektion"/>
 						<att name="queryExp" type="string" value="SELECT englisch,deutsch FROM wort"/>
 					</node>
 					<node uid="19eba8be-4791-48ae-823e-8b8a50dd0ed8" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="505" y="487" fill="#9999ff"/>
+						<graphics x="407" y="487" fill="#9999ff"/>
 						<att name="title" type="string" value="Return"/>
 					</node>
 					<node uid="52751668-3036-4764-abae-360dd4fd1f47" class="com.clt.diamant.graph.nodes.ScriptNode">
-						<graphics x="167" y="114" fill="#99ffff"/>
+						<graphics x="114" y="115" fill="#99ffff"/>
 						<att name="title" type="string" value="Script"/>
 						<att name="script" type="text">
 							<value>länge = length(lektion);</value>
 						</att>
 					</node>
 					<node uid="6995f8b5-5bd3-40a4-b77b-54e910a4e883" class="com.clt.diamant.graph.nodes.ConditionalNode">
-						<graphics x="373" y="478" fill="#c0c0c0"/>
+						<graphics x="351" y="408" fill="#c0c0c0"/>
 						<att name="title" type="string" value=""/>
 						<att name="expression" type="string" value="z &lt; länge"/>
 					</node>
 					<node uid="87dd8719-b829-4d0d-abaf-bcd6bcbe3a88" class="com.clt.diamant.graph.nodes.OutputNode">
-						<graphics x="389" y="367" fill="#00cc99"/>
+						<graphics x="354" y="265" fill="#00cc99"/>
 						<att name="title" type="string" value="Ausgabe"/>
 						<att name="output" type="list">
 							<att name="1b33de25-9bf6-4f24-bcae-a822c8f4b31b" type="list">
-								<att name="Text" type="string" value="&quot;X&quot;"/>
+								<att name="Text" type="string" value="&quot;frage antwort X&quot;"/>
 							</att>
 						</att>
 						<att name="reset" type="boolean" value="0"/>
 						<att name="wait" type="boolean" value="0"/>
 					</node>
 					<node uid="a04410e8-4cb8-413c-89bb-906bd582df57" class="com.clt.diamant.graph.nodes.GotoNode">
-						<graphics x="254" y="487" fill="#4c4c80"/>
+						<graphics x="297" y="487" fill="#4c4c80"/>
 						<att name="title" type="string" value="Sprung"/>
 						<att name="label_uid" type="string" value="cc418e38-f179-4d5f-9059-df2ae0a8f104"/>
 					</node>
 					<node uid="a3429721-44e8-4de1-b939-46b738457604" class="com.clt.diamant.graph.nodes.ScriptNode">
-						<graphics x="222" y="173" fill="#99ffff"/>
+						<graphics x="152" y="173" fill="#99ffff"/>
 						<att name="title" type="string" value="Script"/>
 						<att name="script" type="text">
 							<value>struct vokabel;
@@ -226,7 +227,7 @@ z += 1;</value>
 						</att>
 					</node>
 					<node uid="ae8387d3-485e-4543-bda0-446b30f5c2b5" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="275" y="427" fill="#00b200"/>
+						<graphics x="255" y="334" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>&quot;Richtig!&quot;</value>
@@ -235,7 +236,7 @@ z += 1;</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="bb938f9a-85d8-4941-b12b-31e7fc1c2553" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="384" y="427" fill="#00b200"/>
+						<graphics x="367" y="334" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>&quot;Falsch!&quot;</value>
@@ -244,11 +245,11 @@ z += 1;</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="cc418e38-f179-4d5f-9059-df2ae0a8f104" class="com.clt.diamant.graph.nodes.LabelNode">
-						<graphics x="284" y="85" fill="#4c4c80"/>
+						<graphics x="183" y="106" fill="#4c4c80"/>
 						<att name="title" type="string" value="Sprungziel"/>
 					</node>
 					<node uid="d65b04b9-5181-4d76-a2db-c95c11278605" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="285" y="238" fill="#00b200"/>
+						<graphics x="285" y="117" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>frage</value>
@@ -257,11 +258,11 @@ z += 1;</value>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
 					<node uid="dc97c56c-d30a-4583-b7fe-c86f68d0815f" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="32" y="11" fill="#9999ff"/>
+						<graphics x="26" y="3" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="ec21dc37-a701-45e3-abfe-798af6c74a83" class="com.clt.diamant.graph.nodes.ScriptNode">
-						<graphics x="309" y="177" fill="#99ffff"/>
+						<graphics x="310" y="38" fill="#99ffff"/>
 						<att name="title" type="string" value="Script"/>
 						<att name="script" type="text">
 							<value>grammatik = &quot;root $Input;\n&quot;;
@@ -269,7 +270,7 @@ grammatik += &quot;$Input = &quot;+antwort+&quot;;&quot;;</value>
 						</att>
 					</node>
 					<node uid="ff015319-0922-436b-b21c-f96857792603" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="289" y="310" fill="#b20000"/>
+						<graphics x="285" y="191" fill="#b20000"/>
 						<att name="title" type="string" value="Spracherkenner"/>
 						<att name="timeout" type="string" value="5000"/>
 						<att name="language" type="string" value="Deutsch"/>
@@ -327,7 +328,7 @@ Soll ich Dich abfragen 1, möchtest Du eine neue Lektion erstellen 2 oder soll i
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="adcaa218-558a-41b9-b1af-1d6d66c63d22" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="353" y="298" fill="#ffc800"/>
+			<graphics x="353" y="306" fill="#ffc800"/>
 			<att name="title" type="string" value="neue Lektion"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
