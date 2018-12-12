@@ -11,11 +11,12 @@ frame = JFrame('Lektion erstellen',
         )
 def change_text(event):
     text = feld.getText()
-    name = feld2.getText()
-    with open(name+".txt","w") as f:
+    name = feld2.getText() + ".txt"
+    with open(name,"w") as f:
         f.write(text)
+        print(name + " gespeichert")
 
-button = JButton('Click Me!', actionPerformed=change_text,size=(10,20))
+button = JButton('Lektion speichern!', actionPerformed=change_text,size=(10,20))
 button.setBounds(20,40,20,40);
 pnl = JPanel()
 pnl.setLayout(BoxLayout(pnl, BoxLayout.Y_AXIS))
@@ -23,7 +24,7 @@ feld = JTextArea()
 feld.editable = True
 feld.setText("Deutsch\tEnglisch\n")
 feld2 = JTextField()
-feld2.setText("Name der Lektion:")
+feld2.setText("Ersetzen durch Namen der Lektion")
 pnl.add(feld2)
 pnl.add(feld)
 pnl.add(button)
