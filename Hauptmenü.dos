@@ -27,6 +27,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
 	</device>
+	<device id="47fabda7-7d92-4f36-b887-d8b875ee6253">
+		<name>lektion</name>
+		<connector class="com.clt.dialog.client.ManualCLTConnector">
+			<att name="Server Name" type="string" value="localhost"/>
+			<att name="Port" type="string" value="8001"/>
+		</connector>
+		<icon width="16">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</icon>
+	</device>
 	<plugin type="dialogos.plugin.sphinx">
 		<att name="language" type="string" value="de_DE"/>
 		<g2p language="de_DE">
@@ -162,7 +187,7 @@ $Wörterbuch = ( wörterbuch) ;
 $Lektion = { Lektion };</value>
 		</grammar>
 		<node uid="00edcfd4-1216-4378-9059-79302123ad0f" class="com.clt.diamant.graph.nodes.EndNode">
-			<graphics x="371" y="390" fill="#9999ff"/>
+			<graphics x="373" y="422" fill="#9999ff"/>
 			<att name="title" type="string" value="Ende"/>
 		</node>
 		<node uid="3acc167f-d51b-4e93-9755-a8fbcdabdad4" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
@@ -172,7 +197,7 @@ $Lektion = { Lektion };</value>
 			<att name="language" type="string" value="Deutsch"/>
 		</node>
 		<node uid="8ff4d961-bcf1-4863-bf94-c629b156b646" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="292" y="265" fill="#ffc800"/>
+			<graphics x="236" y="257" fill="#ffc800"/>
 			<att name="title" type="string" value="Abfrage"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -373,7 +398,7 @@ grammatik += &quot;$Input = &quot;+antwort+&quot;;&quot;;</value>
 			</att>
 		</node>
 		<node uid="ab009cdd-ac79-4008-8388-d3aa9cd74d2a" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-			<graphics x="346" y="120" fill="#00b200"/>
+			<graphics x="415" y="118" fill="#00b200"/>
 			<att name="title" type="string" value="Sprachsynthese"/>
 			<att name="prompt" type="text">
 				<value>Was kann ich für Dich tun?
@@ -383,23 +408,45 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 			<att name="wait" type="boolean" value="1"/>
 		</node>
 		<node uid="adcaa218-558a-41b9-b1af-1d6d66c63d22" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="353" y="330" fill="#ffc800"/>
+			<graphics x="354" y="338" fill="#ffc800"/>
 			<att name="title" type="string" value="neue Lektion"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
 					<att name="width" type="integer" value="750"/>
 					<att name="height" type="integer" value="540"/>
 					<groovyFunctions></groovyFunctions>
+					<variable uid="7eae219b-7a9c-4dfa-b16d-91444828ea6a">
+						<name>Lektion</name>
+						<type>string</type>
+						<value>undefined</value>
+						<export/>
+					</variable>
+					<variable uid="d3ddd41b-419b-4301-862e-84db52cc28bd">
+						<name>x</name>
+						<type>string</type>
+						<value>undefined</value>
+					</variable>
+					<node uid="08b66bd2-93ae-4ad3-a50d-96d5436de57d" class="com.clt.diamant.graph.nodes.SleepNode">
+						<graphics x="340" y="228" fill="#99ffff"/>
+						<att name="title" type="string" value="Warten"/>
+						<att name="time" type="string" value="10000"/>
+					</node>
 					<node uid="37fc573b-c45a-432d-ab54-3df9ef4949d5" class="com.clt.diamant.graph.nodes.StartNode">
-						<graphics x="370" y="40" fill="#9999ff"/>
+						<graphics x="339" y="3" fill="#9999ff"/>
 						<att name="title" type="string" value="Start"/>
 					</node>
 					<node uid="3ff7df02-e6e7-4903-8357-356f69fb8558" class="com.clt.diamant.graph.nodes.ReturnNode">
-						<graphics x="371" y="300" fill="#9999ff"/>
+						<graphics x="341" y="450" fill="#9999ff"/>
 						<att name="title" type="string" value="Return"/>
 					</node>
+					<node uid="5f6b6e5e-0859-4118-9b42-c03ad60c3163" class="edu.cmu.lti.dialogos.db.sqlite.SqliteNode">
+						<graphics x="572" y="147" fill="#c0c0c0"/>
+						<att name="title" type="string" value="Sqlite"/>
+						<att name="resultVar" type="string" value=""/>
+						<att name="queryExp" type="string" value=""/>
+					</node>
 					<node uid="7f6bd88c-ed3d-429c-a02a-0174f7a5ebb0" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
-						<graphics x="345" y="124" fill="#00b200"/>
+						<graphics x="314" y="87" fill="#00b200"/>
 						<att name="title" type="string" value="Sprachsynthese"/>
 						<att name="prompt" type="text">
 							<value>Neue Vokabelliste</value>
@@ -407,17 +454,53 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 						<att name="prompt_type" type="string" value="text"/>
 						<att name="wait" type="boolean" value="1"/>
 					</node>
-					<node uid="a87fd2c1-f76e-447b-91c5-aee3895bff9f" class="edu.cmu.lti.dialogos.sphinx.plugin.SphinxNode">
-						<graphics x="346" y="215" fill="#b20000"/>
-						<att name="title" type="string" value="Spracherkenner"/>
-						<att name="language" type="string" value="Deutsch"/>
+					<node uid="9baf795e-0a3c-4596-b096-7bf662b5fc02" class="de.saar.coli.dialogos.marytts.plugin.TTSNode">
+						<graphics x="315" y="379" fill="#00b200"/>
+						<att name="title" type="string" value="Sprachsynthese"/>
+						<att name="prompt" type="text">
+							<value>x</value>
+						</att>
+						<att name="prompt_type" type="string" value="expression"/>
+						<att name="wait" type="boolean" value="1"/>
 					</node>
+					<node uid="dc512d5b-046d-4f02-8264-9a37a8e880b4" class="com.clt.diamant.graph.nodes.OutputNode">
+						<graphics x="339" y="166" fill="#00cc99"/>
+						<att name="title" type="string" value="Ausgabe"/>
+						<att name="output" type="list">
+							<att name="47fabda7-7d92-4f36-b887-d8b875ee6253" type="list">
+								<att name="Text" type="string" value="Lektion"/>
+							</att>
+						</att>
+						<att name="reset" type="boolean" value="0"/>
+						<att name="wait" type="boolean" value="0"/>
+					</node>
+					<node uid="def9bcbc-073a-4bf4-a414-a1cae72bc0d9" class="com.clt.diamant.graph.nodes.InputNode">
+						<graphics x="339" y="309" fill="#ff5a5a"/>
+						<att name="title" type="string" value="Eingabe"/>
+						<att name="output" type="list">
+							<att name="47fabda7-7d92-4f36-b887-d8b875ee6253" type="list">
+								<att name="Text" type="string" value="x"/>
+							</att>
+						</att>
+						<att name="reset" type="boolean" value="0"/>
+						<att name="wait" type="boolean" value="1"/>
+						<att name="discard" type="boolean" value="0"/>
+						<att name="ignoreInputHandlers" type="boolean" value="0"/>
+					</node>
+					<edge src="08b66bd2-93ae-4ad3-a50d-96d5436de57d" tgt="def9bcbc-073a-4bf4-a414-a1cae72bc0d9">
+					</edge>
 					<edge src="37fc573b-c45a-432d-ab54-3df9ef4949d5" tgt="7f6bd88c-ed3d-429c-a02a-0174f7a5ebb0">
 					</edge>
-					<edge src="7f6bd88c-ed3d-429c-a02a-0174f7a5ebb0" tgt="a87fd2c1-f76e-447b-91c5-aee3895bff9f">
+					<edge src="5f6b6e5e-0859-4118-9b42-c03ad60c3163">
 					</edge>
-					<edge src="a87fd2c1-f76e-447b-91c5-aee3895bff9f" tgt="3ff7df02-e6e7-4903-8357-356f69fb8558">
-						<att name="condition" type="string" value="Raus"/>
+					<edge src="7f6bd88c-ed3d-429c-a02a-0174f7a5ebb0" tgt="dc512d5b-046d-4f02-8264-9a37a8e880b4">
+					</edge>
+					<edge src="9baf795e-0a3c-4596-b096-7bf662b5fc02" tgt="3ff7df02-e6e7-4903-8357-356f69fb8558">
+					</edge>
+					<edge src="dc512d5b-046d-4f02-8264-9a37a8e880b4" tgt="08b66bd2-93ae-4ad3-a50d-96d5436de57d">
+					</edge>
+					<edge src="def9bcbc-073a-4bf4-a414-a1cae72bc0d9" tgt="9baf795e-0a3c-4596-b096-7bf662b5fc02">
+						<att name="condition" type="string" value="x"/>
 					</edge>
 				</graph>
 			</att>
@@ -426,7 +509,7 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 			</att>
 		</node>
 		<node uid="d31704bb-8887-4c39-9923-ab1e7809a691" class="com.clt.diamant.graph.nodes.GraphNode">
-			<graphics x="451" y="265" fill="#ffc800"/>
+			<graphics x="504" y="257" fill="#ffc800"/>
 			<att name="title" type="string" value="Wörterbuch"/>
 			<att name="graph" type="object">
 				<graph directed="1" Graphic="1" Layout="points">
@@ -469,7 +552,7 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 			</att>
 		</node>
 		<node uid="e1dfa62f-7e7f-45b3-97ee-26a69edaafb0" class="com.clt.diamant.graph.nodes.StartNode">
-			<graphics x="371" y="41" fill="#9999ff"/>
+			<graphics x="371" y="30" fill="#9999ff"/>
 			<att name="title" type="string" value="Start"/>
 		</node>
 		<edge src="3acc167f-d51b-4e93-9755-a8fbcdabdad4" tgt="8ff4d961-bcf1-4863-bf94-c629b156b646">
@@ -484,7 +567,7 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 		<edge src="8ff4d961-bcf1-4863-bf94-c629b156b646" tgt="00edcfd4-1216-4378-9059-79302123ad0f">
 			<att name="condition" type="string" value="Return"/>
 		</edge>
-		<edge src="ab009cdd-ac79-4008-8388-d3aa9cd74d2a" tgt="3acc167f-d51b-4e93-9755-a8fbcdabdad4">
+		<edge src="ab009cdd-ac79-4008-8388-d3aa9cd74d2a">
 		</edge>
 		<edge src="adcaa218-558a-41b9-b1af-1d6d66c63d22" tgt="00edcfd4-1216-4378-9059-79302123ad0f">
 			<att name="condition" type="string" value="Return"/>
@@ -492,7 +575,7 @@ Soll ich Dich abfragen, möchtest Du eine neue Lektion erstellen oder soll ich f
 		<edge src="d31704bb-8887-4c39-9923-ab1e7809a691" tgt="00edcfd4-1216-4378-9059-79302123ad0f">
 			<att name="condition" type="string" value="Return"/>
 		</edge>
-		<edge src="e1dfa62f-7e7f-45b3-97ee-26a69edaafb0" tgt="ab009cdd-ac79-4008-8388-d3aa9cd74d2a">
+		<edge src="e1dfa62f-7e7f-45b3-97ee-26a69edaafb0" tgt="3acc167f-d51b-4e93-9755-a8fbcdabdad4">
 		</edge>
 	</graph>
 </wizard>
